@@ -153,35 +153,210 @@ ROUTEPLANNER EXTENSIONS
 ----------------------------------
 ROUTE PLANNER ENDPOINTS (working 19/11/19)
 
-Get stations - http://localhost:8080/route/stations
-Get Route - http://localhost:8080/route/Farringdon/Piccadilly Circus
-General access - http://localhost:8080/route/
-User access - http://localhost:8080/route/user
-Save Contact Details - http://localhost:8080/reg/contact-details/persist
+
+GETTERS
+Get stations - http://localhost:8083/route/stations
+Get Route - http://localhost:8083/route/Farringdon/Piccadilly Circus
+General access - http://localhost:8083/route/
+User access - http://localhost:8083/route/user
 Get a user by username - ????
-Get route queries for user - http://localhost:8080/route/query/1
-Save user - http://localhost:8080/reg/user/add
-Get Users - http://localhost:8080/reg/users
-Update contact details - http://localhost:8080/reg/contact-details/12
-Get a user by id - http://localhost:8080/reg/user/id/2
-Add Route - http://localhost:8080/route/add
-Add Ticket - http://localhost:8080/ticket/admin/add
-Get all tickets - http://localhost:8080/ticket/all
-Delete ticket - http://localhost:8080/ticket/admin/delete/1
-Get current basket or make one - http://localhost:8080/basket/current/2
-Get existing contact details for user - http://localhost:8080/reg/contact/4
-Add basket with no tickets - http://localhost:8080/basket/add
-Save existing basket with new ticket - http://localhost:8080/basket/update/18
-Get payment methods for user - http://localhost:8080/order/member/pm/1
-Add payment method - http://localhost:8080/order/member/pm/add
-Get orders for user - ????
-Post Order - http://localhost:8080/order/member/purchase
+Get route queries for user - http://localhost:8083/route/query/1
+Get Users - http://localhost:8083/reg/users
+Get a user by id - http://localhost:8083/reg/user/id/2
+Get all tickets - http://localhost:8083/ticket/all
+Get current basket or make one - http://localhost:8083/basket/current/1
+Get existing contact details for user - http://localhost:8083/reg/contact/1
+Get payment methods for user - http://localhost:8083/order/member/pm/1
+???????Get orders for user - ????
+
+----------------
+
+POSTS (content-type=application/json) + [RAW + JSON]
+Save Contact Details - http://localhost:8083/reg/contact-details/persist
+{
+	"fullname": "tttttttnew",
+    "title": "titlenew",
+    "addressLine1": "addressLine1uu", 
+    "addressLine2": "addressLine2", 
+    "addressLine3": "addressLine3", 
+    "city": "city", 
+    "region": "region", 
+    "country": "country", 
+    "email": "email@sdf.com", 
+    "mobileTel": "999", 
+    "homeTel": "5555",
+    "officeTel": "5555",
+	 "user": {
+		"id": 4
+	    }
+}
+
+Save user - http://localhost:8083/reg/user/add
+{   
+	    "id": 120,
+	    "active": 0,
+		"password": "adpass123",
+		"roles": "ROLE_USER",
+		"userName": "ioioio"
+}
+
+Add Route - http://localhost:8083/route/add
+{
+    "currRouteStart": "Oxford Circus",
+    "currRouteDest": "East Putney",
+  	"user": {
+		"id": 4
+	    }
+}
+
+Add Ticket - http://localhost:8083/ticket/admin/add
+{
+	"numUnits": 678,
+	"travelDate": "2019-11-30",
+	"passengerType": "STANDARD_PLUS",
+	"ticketType": "OFF_PEAK",
+	"start": "qq444testStart23488",
+	"destination": "yy444testDest23488"
+}
+
+Add basket with no tickets - http://localhost:8083/basket/add
+{
+    "tickets": [
+        
+    ],
+    "contactDetails": {
+        "id": 16
+    },
+    "open": true
+}
+
+Save existing basket with new ticket - http://localhost:8083/basket/update/18
+{
+    "id": 19,
+    "tickets": [
+    	{
+            "numUnits": 190,
+            "open": true,
+            "passengerType": "OVER_75",
+            "travelDate": "2020-09-30",
+            "ticketType": "OFF_PEAK",
+            "start": "newTickStart23488",
+            "destination": "newTickDest23488"
+        },
+        {
+            "id": 333,
+            "numUnits": 19,
+            "open": true,
+            "passengerType": "OVER_75",
+            "travelDate": "2019-09-30",
+            "ticketType": "OFF_PEAK",
+            "start": "testStart23488",
+            "destination": "testDest23488"
+        },
+        {
+            "id": 334,
+            "numUnits": 3,
+            "open": true,
+            "passengerType": "STUDENT_POOR",
+            "travelDate": "2019-10-04",
+            "ticketType": "OFF_PEAK",
+            "start": "start1",
+            "destination": "dest1"
+        },
+        {
+            "id": 335,
+            "numUnits": 55555,
+            "open": true,
+            "passengerType": "STANDARD_PLUS",
+            "travelDate": "2019-11-30",
+            "ticketType": "OFF_PEAK",
+            "start": "444testStart23488",
+            "destination": "444testDest23488"
+        },
+        {
+            "id": 34,
+            "numUnits": 77,
+            "open": true,
+            "passengerType": "OVER_75",
+            "travelDate": "2019-09-30",
+            "ticketType": "OFF_PEAK",
+            "start": "444testStart23488",
+            "destination": "444testDest23488"
+        }
+    ],
+    "contactDetails": {
+        "id": 17
+        
+        },
+        "title": "titlenew",
+        "fullname": "tttttttnew",
+        "addressLine1": "addressLine1uu",
+        "addressLine2": "addressLine2",
+        "addressLine3": "addressLine3",
+        "city": "city",
+        "region": "region",
+        "country": "country",
+        "email": "email@sdf.com",
+        "mobileTel": "999",
+        "homeTel": "5555",
+        "officeTel": "5555"
+    },
+    "open": true
+}
+
+Add payment method - http://localhost:8083/order/member/pm/add
+{
+        "user": {
+            "id": 1
+        },
+        "nameOnCard": "Mr X Bloggs2399",
+        "cardType": "VISA_DEBIT",
+        "cardNumber": "1234132423412322",
+        "securityCode": "422",
+        "expiryDate": "2022-10-22",
+        "validFrom": "2020-10-22"
+}
+
+???????Post Order - http://localhost:8080/order/member/purchase
+
+----------------
+
+PUTS
+Update contact details - http://localhost:8083/reg/contact-details/12
+{
+	"id": 12,
+	"fullname": "wwwwwggggg",
+    "title": "titlezzz",
+    "addressLine1": "addressLine1uu", 
+    "addressLine2": "addressLine2", 
+    "addressLine3": "addressLine3", 
+    "city": "city", 
+    "region": "region", 
+    "country": "country", 
+    "email": "email@sdf.com", 
+    "mobileTel": "999", 
+    "homeTel": "5555",
+    "officeTel": "5555",
+	 "user": {
+		"id": 4
+	    }
+}
+
+----------------
+
+DELETE
+Delete ticket - http://localhost:8083/ticket/admin/delete/5
 
 ----------------------------------
 ----------------------------------
 MYSQL
 
-root / J03R00t123!
+mysql -h root -u username -p J03R00t123!
+
+TERMINAL:
+--> make sure apply/system prefs/mysql is chugging away
+--> /usr/local/mysql/bin/mysql -u root -p
+--> J03R00t123!
 
 Configure:
 spring.jpa.hibernate.ddl-auto

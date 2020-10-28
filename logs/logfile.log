@@ -836,3 +836,7 @@ Changes = 3
 Total stops = 19
 
 
+2020-10-28 16:38:16.299  INFO 6291 --- [Thread-3] o.s.s.concurrent.ThreadPoolTaskExecutor  : Shutting down ExecutorService 'applicationTaskExecutor'
+2020-10-28 16:38:16.313  INFO 6291 --- [Thread-3] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2020-10-28 16:38:16.337  INFO 6291 --- [Thread-3] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2020-10-28 16:38:16.355  INFO 6291 --- [Thread-3] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.

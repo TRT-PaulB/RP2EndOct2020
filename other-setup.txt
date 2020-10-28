@@ -54,9 +54,6 @@ SUMMARY OF CHANGES FOR WINDOWS
     
 --> Set Mysql on path in current shell as env var is not picked up:
     set path=%PATH%;C:\Program Files\MySQL\MySQL Server 8.0\bin;
-    
---> files:
-    this: other-setup.txt 
 
 -----------------------
 
