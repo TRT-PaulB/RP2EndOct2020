@@ -6,6 +6,7 @@
 HOW TO RUN ROUTEPLANNER APP
 
 --> JavaWorkspace3/MainApp
+    Oct2020Workspace/RP2-master 
     ./mvnw spring-boot:run
 
 --> internal react app
@@ -111,22 +112,42 @@ BACKEND CHANGES
 
 ----------------------------------
 ----------------------------------
-ROUTEPLANNER EXTENSIONS - post Dec 12th, 2019
+SUMMARY OF BASIC FUNCTIONALITY JOBS
 
---> functionality left over from above list
---> apply mosh style error handling in front end
---> react internationalization
+—> Login is hardcoded; no logout button once logged in
+—> Main journey:  
+       —> View basket page
+               —> revise colour and text size!
+               —> complete ticket and basket form
+—> Contact Details page
+      —> separate this and use in registration, and populate here…
+      —> no need to make all the fields mandatory
+—> Payment details screen
+—> Confirm order
+—> Success or Failure page
+—> Admin Corner
+       —> users
+       —> tickets
+
+----------------------------------
+----------------------------------
+ROUTEPLANNER EXTENSIONS
+
 --> Add security: authentication and authorization
-    - frontend (based on dummy rp and Mosh)
-    - backend 
---> react unit tests
---> apply to mongodb database instead of MySQL
---> convert to microservices
+    - frontend (based on dummy rp and Mosh --> headers)
+    - backend (spring security)
+
+--> convert to microservices / docker / ECS on AWS
     --> data loader
     --> route calculation engine
     --> central webapp for screen flow 
---> apply poc for introduction to docker, kubenetes, 
-    jenkins
+
+--> apply ins some way to mongodb database instead of MySQL
+
+
+--> apply mosh style error handling in front end
+--> react internationalization
+--> react unit tests
 
 ----------------------------------
 ----------------------------------
